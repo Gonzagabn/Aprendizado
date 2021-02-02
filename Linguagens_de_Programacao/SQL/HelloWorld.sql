@@ -1,1 +1,1 @@
-Select 'Hello Word';
+SELECT * FROM NOME_DA_TABELA;
