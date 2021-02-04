@@ -38,6 +38,8 @@ memória isso para que se caso o BD caia, seja possível recuperar as informaç�
 
 Existe um modo chamado Archive que contém vários Redo Log Files para ir atualizando 
 conforme a demanda
+*/
+
 
 
 
