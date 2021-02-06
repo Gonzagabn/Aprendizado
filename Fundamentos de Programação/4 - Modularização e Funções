@@ -1,0 +1,36 @@
+A programação estruturada é voltada para o desenvolvimento de software. 
+    
+    - Técnica de refinamentos sucessivos
+    - Modularização de programas
+    
+O objetivo é principalmente, a confiabilidade, legibilidade, manutenibilidade e flexibilidade.
+
+Pode-se reunir as idéias da programação estruturada em três grupos:
+
+    · Desenvolvimento de algoritmos por fases ou refinamentos sucessivos;
+    
+    · Uso de um número muito limitado de estruturas de controle;
+    
+    · Transformação de certos refinamentos sucessivos em módulos.
+
+Um módulo é um grupo de comandos, com uma função bem definida e o mais independente possível em 
+relação ao resto doalgoritmo.
+
+Todo módulo opera sobre um conjunto de objetos globais ou locais.
+
+    Objetos globais são entidades que podem ser usadas em módulos internos a
+    outro módulo do algoritmo onde foram declaradas.
+    
+    Objetos locais são entidades que só podem ser usadas no módulo do algoritmo
+    onde foram declaradas.
+
+A comunicação entre módulos deverá ser feita através de vínculos, utilizando-se
+objetos globais ou transferência de parâmetros.
+
+Benefícios dos módulos:
+
+    · Manutenção simples (módulos independentes);
+    · Elaboração e testes em separado;
+    · Reutilização do módulo em outros programas.
+
+Ferramentas para isso: Sub-rotinas, Funções e Recursividade.

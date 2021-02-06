@@ -1,0 +1,18 @@
+As estruturas mais básicas de dados são variáveis que armazenam mais de um elemento.
+
+Variáveis Compostas Homogêneas
+
+    Quando o conteudo das variaveis é do mesmo tipo
+
+    Variáveis compostas unidimensionais
+        É o que pode ser chamado de Vetor, Array
+        uma variável composta por várias elementos
+    Variáveis compostas multidimensionais
+        É o mesmo da unidimensional, porém aplicado a várias dimensões
+        partindo da de n = 2, onde é caracterizada por uma matriz bidimensional
+    
+Variávei Compostas Heterogêneas
+
+    Variáveis compostas heterogêneas são conjuntos de dados logicamente
+    relacionados, mas de tipos diferentes (numérico, literal, lógico). São também conhecidos
+    como registros ou estruturas.
