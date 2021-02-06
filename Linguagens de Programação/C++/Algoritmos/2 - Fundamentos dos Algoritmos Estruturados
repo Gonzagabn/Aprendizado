@@ -1,0 +1,43 @@
+Esse material trata sobre:
+
+    Constantes
+        Constante Numérica
+        Constante Lógica
+        Constante Literal
+    Variáveis
+        Formação dos Identificadores
+        Declaração de Variáveis
+    Expressões Aritméticas
+        Adição
+        Subtração
+        Multiplicação
+        Divisão
+        Potenciação
+        Radiciação
+    Funções
+        LOG(EA)                 Logaritmo na base 10 de EA Real
+        LN(EA)                  Logaritmo Neperiano de EA Real
+        EXP(EA)                 Exponencial de EA Real
+        ABS(EA)                 Valor Absoluto de EA Real/Inteiro
+        TRUNCA(EA)              Parte inteira de EA Inteiro
+        ARREDONDA(EA)           Arredondamento de EA Inteiro
+        QUOCIENTE(EAx,EAy)      Quociente inteiro da divisão de EAx por EAy Inteiro
+        RESTO (EAx,EAy)         Resto da divisão de EAx por EAy Inteiro
+        (EA)2                   O quadrado de EA Real/Inteiro
+        RAIZ(EA)                A raiz quadrada de EA Real
+        SENO(EA)                Seno de EA (EA dado em radiandos) Real
+        COSSENO(EA) ou COS(EA)  Cosseno de EA ( EA dado em radiandos) Real
+        ARCTAN(EA)              Arco Tangente de EA (radiandos) Real
+    Expressões Lógicas
+        Relações
+            =   igual a
+            ≠   diferente de
+            >   maior que
+            <   menor que
+            >=  maior ou igual a
+            <=  menor ou igual a
+        Operadores Lógicos
+            E          ^    CONJUNÇÃO
+            NÃO     ¬ ou ~  NEGAÇÃO
+            OU         v     DISJUNÇÃO
+

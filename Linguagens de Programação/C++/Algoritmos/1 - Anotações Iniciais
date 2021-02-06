@@ -1,0 +1,72 @@
+Considerações iniciais
+
+    O processamento de dados funciona assim:
+
+        Dados -> Processamento -> Resultado
+
+Estrutura de um Computador Digital
+
+    Unidade de Entrada
+        Traduz informação de uma grande variedade de dispositivos em um código que a
+        unidade central de processamento é capaz de entender.
+
+    Memória
+        Armazena os dados e os programas que “manipulam” estes dados.
+    
+    Unidade Lógica e Aritmética
+        Nesta unidade são feitos todos os cálculos aritméticos e qualquer manipulação de
+        dados, sejam eles numéricos ou não.
+
+    Unidade de Controle
+        É a unidade responsável pelo fluxo dos dados. Ela obtém dados armazenados na
+        memória e interpreta-os. Controla a transferência de dados da memória para a
+        unidade lógica e aritmética, da entrada para a memória e da memória para a saída.
+
+    Unidade de Saída
+        Os dados processados são convertidos, por esta unidade, de impulsos elétricos em
+        palavras ou números que podem ser “escritos” em impressoras ou “mostrados” em
+        vídeos ou numa séria de outros dispositivos.
+
+Algoritmo
+
+    “Algoritmo é a descrição de um conjunto de comandos que, obedecidos, resultam
+    numa sucessão finita de ações”.
+
+Algoritmos Estruturados
+
+    Objetivos:
+
+        • Facilitar o desenvolvimento dos algoritmos;
+        • Facilitar o seu entendimento;
+        • Antecipar a comprovação da sua correção;
+        • Permitir que o seu desenvolvimento possa ser empreendido
+          simultaneamente por uma equipe de pessoas.
+    
+    Como alcançá-los:
+
+    • Os algoritmos devem ser desenvolvidos por refinamentos sucessivos partindo de uma
+    descrição geral e, gradativa e sucessivamente, atacando as minúcias e particularidades.
+    Este desenvolvimento também se denomina “construção hierárquica de algoritmos” e
+    “desenvolvimento top/down”.
+    
+    • Os sucessivos refinamentos são módulos, que delimitam poucas funções e são os mais
+    independentes possíveis, isto é, conservam poucos vínculos com outros módulos.
+    
+    • Nos módulos deve ser usado um número limitado de diferentes comandos e de
+    diferentes estruturas de controle.
+
+Linguagens de Programação
+
+    Linguagem de Máquina - 0100111010010011100101010
+
+    Assembly - Pouca facilidade em dar comandos
+
+    FORTRAN - Mais facilidade em dar comandos
+
+    Linguagens de alto nível (nível de abstração) - Quase linguagem comum
+
+        A escolha da linguagem de programação para se usar em um computador
+    depende, antes de tudo, da existência de um programa compilador (que traduza o
+    algoritmo escrito na linguagem escolhida para a linguagem de máquina) ou de um
+    programa interpretador (que interprete cada comando do programa e execute uma série
+    de instruções que a ele correspondem).
