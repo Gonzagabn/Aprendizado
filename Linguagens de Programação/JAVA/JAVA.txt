@@ -1,0 +1,54 @@
+Código fonte ---Compilador---> Código Objeto ---Linker---> (Bytecode) -> JVM -> Executável
+
+Código Fonte ---Interpretador---> (Bytecode) -> JVM ->  Executável 
+
+JRE - Ambiente de execução - tem JVM () e Bibliotecas
+JDK - Kit de desenvolvimento - tem JRE + Javalang + Javatools (JavaC+Debugger+API(bibliotecas)+ opicional IDE(Plataforma de desenvolvimento)
+
+Edições de JDK:
+	SE - Aplicação de janelas pc
+	EE - Empresa, bancos de dados
+	ME - Para portáteis (Celular e dispositivos)
+
+WORA - Escrever uma vez e executar em qualquer lugar
+
+Comandos:
+Java executa um app java
+JavaC compila um prog java
+programa java é .java
+arquivo compilado é .class
+bytecode é compilado e então executado pela JVM
+
++Memória -tempo
+-Memória +tempo
+
+Atribuição é <-
+
+-----------------------------
+Estrutura java e o tal do Case sensitive
+Primeira letra é maiuscula é Classe ou interface
+Primeira letra minuscula pode ser atributo, variável ou método
+Tudo minuscula Pacote
+Tudo maiuscula Constante
+
+package primeiroprograma;	//Pacote (tudo minusculo)
+public class PrimeiroPrograma { 	//Classe (camelcase primeira letra maiuscula)
+	public static void main(String[] args) {	//Método
+		System.out.print("Olá, Mundo!");  //Comando (primeira letra maiuscula)
+	}
+}
+--------------------------------
+Tudo que eu quiser a mais no java tenho que importar
+padrão - java.lang 
+EX: import java.applet
+java.applet - para aplicativos
+javax.swing - interface gráfica
+
+----------------------------------------
+extends é herança é herdar comandos de um método
+encapsulamento é o private
+impements é interface
+-----------------
+Aula 10/30 - 
+
+
