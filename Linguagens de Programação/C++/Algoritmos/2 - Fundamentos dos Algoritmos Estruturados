@@ -1,8 +1,8 @@
-Esse material trata sobre:
+Categorização em Algoritmos:
 
     Constantes
         Constante Numérica
-        Constante Lógica
+        Constante Lógica (Falso ou Verdadeiro)
         Constante Literal
     Variáveis
         Formação dos Identificadores
@@ -15,19 +15,19 @@ Esse material trata sobre:
         Potenciação
         Radiciação
     Funções
-        LOG(EA)                 Logaritmo na base 10 de EA Real
-        LN(EA)                  Logaritmo Neperiano de EA Real
-        EXP(EA)                 Exponencial de EA Real
-        ABS(EA)                 Valor Absoluto de EA Real/Inteiro
-        TRUNCA(EA)              Parte inteira de EA Inteiro
-        ARREDONDA(EA)           Arredondamento de EA Inteiro
-        QUOCIENTE(EAx,EAy)      Quociente inteiro da divisão de EAx por EAy Inteiro
-        RESTO (EAx,EAy)         Resto da divisão de EAx por EAy Inteiro
-        (EA)2                   O quadrado de EA Real/Inteiro
-        RAIZ(EA)                A raiz quadrada de EA Real
-        SENO(EA)                Seno de EA (EA dado em radiandos) Real
-        COSSENO(EA) ou COS(EA)  Cosseno de EA ( EA dado em radiandos) Real
-        ARCTAN(EA)              Arco Tangente de EA (radiandos) Real
+        LOG(EA)                     Logaritmo na base 10 de EA                      Real
+        LN(EA)                      Logaritmo Neperiano de EA                       Real
+        EXP(EA)                     Exponencial de EA                               Real
+        ABS(EA)                     Valor Absoluto de EA                            Real/Inteiro
+        TRUNCA(EA)                  Parte inteira de EA                             Inteiro
+        ARREDONDA(EA)               Arredondamento de EA                            Inteiro
+        QUOCIENTE(EAx,EAy)          Quociente inteiro da divisão de EAx por EAy     Inteiro
+        RESTO (EAx,EAy)             Resto da divisão de EAx por EAy                 Inteiro
+        (EA)2                       O quadrado de EA                                Real/Inteiro
+        RAIZ(EA)                    A raiz quadrada de EA                           Real
+        SENO(EA)                    Seno de EA (EA dado em radiandos)               Real
+        COSSENO(EA) ou COS(EA)      Cosseno de EA ( EA dado em radiandos)           Real
+        ARCTAN(EA)                  Arco Tangente de EA (radiandos)                 Real
     Expressões Lógicas
         Relações
             =   igual a
@@ -37,7 +37,29 @@ Esse material trata sobre:
             >=  maior ou igual a
             <=  menor ou igual a
         Operadores Lógicos
-            E          ^    CONJUNÇÃO
-            NÃO     ¬ ou ~  NEGAÇÃO
-            OU         v     DISJUNÇÃO
-
+            E          ^        CONJUNÇÃO
+            NÃO     ¬ ou ~      NEGAÇÃO
+            OU         v        DISJUNÇÃO
+        Prioridades
+            1ª  Aritmético
+            2ª  Relacional
+            3ª  Não
+            4ª  E
+            5ª  OU
+    Expressões Literais ('|' para concatenar elementos)
+    Comando de Atribuição ('←')
+    Comandos de Entrada e Saída
+        Leia
+        Escreva
+    Estrutura Sequencial
+        Num algoritmo aparecem em primeiro lugar as declarações seguidas por
+        comandos que, se não houver indicação em contrário, deverão ser executados numa
+        seqüência linear, seguindo-se o texto em que estão escritos, de cima para baixo.
+    Estrutura Condicional
+        Se (If)
+        Então 
+        Senão (Else)
+    Estruturas de Repetição
+        Enquanto (While)
+        Repita (Do)
+        Para (For)
