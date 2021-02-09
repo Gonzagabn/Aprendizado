@@ -15,7 +15,7 @@ cout<<endl<<endl;
 
 //Entrada de dados da matriz nxn
 short i, j, coluna;
-int matriz[ordem][ordem];
+double matriz[ordem][ordem];
 cout<<"insira os elementos da matriz"<<endl<<endl;
 for(i=0; i<ordem; i++){
     for(j=0; j<ordem; j++){
@@ -32,17 +32,17 @@ for(i=0; i<ordem; i++){
     }
     cout<<endl;
 }
-cout<<endl<<endl;
+cout<<endl;
 
 //Lógica de redução da matriz, criando o triangulo de zeros
-int diagonalprincipal;
-int pivo;
-float multiplicador;
+double diagonalprincipal;
+double pivo;
+double multiplicador;
 for(i=0; i<ordem; i++){
     diagonalprincipal = matriz[i][i];
     for(j=i+1; j<ordem; j++){
         pivo = matriz[j][i];
-        multiplicador = matriz[j][i] / diagonalprincipal;
+        multiplicador = pivo / diagonalprincipal;
         for(coluna=0; coluna<ordem; coluna++){
             matriz[j][coluna] = matriz[j][coluna] -multiplicador * matriz[i][coluna];
         }
@@ -58,18 +58,16 @@ for(i=0; i<ordem; i++){
     }
     cout<<endl;
 }
-cout<<endl<<endl;
+cout<<endl;
 
 //Lógica do cálculo de determinante
 double resultado=1;
 for(i=0; i<ordem; i++){
-    for(j=0; j<ordem; j++){
-        resultado = resultado * matriz[i][i];
-    }
+    resultado = resultado * matriz[i][i];
 }
 
 //Mostra o determinante da matriz
-cout<<"O Determinante dessa matriz e': "<<resultado;
+cout<<"Determinante da matriz = "<<resultado;
 
 //Fim         
 system("pause>null");
