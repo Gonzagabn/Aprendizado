@@ -4,7 +4,7 @@ using namespace std;
 int main() {
 
 //Entrada da ordem da matriz
-int ordem;
+short ordem;
 cout<<"insira o numero da ordem da matriz"<<endl;
 cin>>ordem;
 while (ordem<0){
@@ -14,7 +14,8 @@ while (ordem<0){
 cout<<endl<<endl;
 
 //Entrada de dados da matriz nxn
-int i, j, matriz[ordem][ordem];
+short i, j, coluna;
+int matriz[ordem][ordem];
 cout<<"insira os elementos da matriz"<<endl<<endl;
 for(i=0; i<ordem; i++){
     for(j=0; j<ordem; j++){
@@ -33,9 +34,31 @@ for(i=0; i<ordem; i++){
 }
 cout<<endl<<endl;
 
-//Lógica de triangulação da matriz
-double pivo;
-pivo = matriz[i][i]/matriz[i][j];
+//Lógica de redução da matriz, criando o triangulo de zeros
+int diagonalprincipal;
+int pivo;
+float multiplicador;
+for(i=0; i<ordem; i++){
+    diagonalprincipal = matriz[i][i];
+    for(j=i+1; j<ordem; j++){
+        pivo = matriz[j][i];
+        multiplicador = matriz[j][i] / diagonalprincipal;
+        for(coluna=0; coluna<ordem; coluna++){
+            matriz[j][coluna] = matriz[j][coluna] -multiplicador * matriz[i][coluna];
+        }
+    }
+}
+
+//Mostra a matriz triangular
+cout<<endl<<"Matriz triangular:"<<endl<<endl;
+for(i=0; i<ordem; i++){
+    for(j=0; j<ordem; j++){
+        cout<<matriz[i][j];
+        cout<<'\t';
+    }
+    cout<<endl;
+}
+cout<<endl<<endl;
 
 //Lógica do cálculo de determinante
 double resultado=1;
