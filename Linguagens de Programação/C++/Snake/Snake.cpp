@@ -41,7 +41,7 @@ void Draw()
             if (i == y && j == x)
                 cout << "O";
             else if (i == fruitY && j == fruitX)
-                cout << "a";
+                cout << "@";
             else
             {
                 bool print = false;
@@ -86,7 +86,7 @@ void Input()
         case 's':
             dir = DOWN;
             break;
-        case 'c':
+        case 'p':
             gameOver = true;
             break; 
        }
@@ -132,11 +132,11 @@ void Logic()
         break;  
     }
     //Bater na parede = Game Over
-    if (x > width || x < 0 || y > height || y < 0)
-        gameOver = true;
+    /*if (x > width || x < 0 || y > height || y < 0)
+        gameOver = true;*/
     //Bater na parede e sair do outro lado
-    /*if (x >= width) x = 0; else if (x < 0) x = width - 1;
-    if (y >= height) y = 0; else if (y < 0) y = height - 1;*/
+    if (x >= width) x = 0; else if (x < 0) x = width - 1;
+    if (y >= height) y = 0; else if (y < 0) y = height - 1;
     //Bater no próprio corpo
     for (int i = 0; i < nTail; i++)
         if (tailX[i] == x && tailY[i] == y)
