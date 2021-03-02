@@ -1,4 +1,4 @@
-import 'package:cadastro/cadastro.dart';
+import 'package:cadastro/calculadora.dart';
 import 'package:test/test.dart';
 
 void main() {
