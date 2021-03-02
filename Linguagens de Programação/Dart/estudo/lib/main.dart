@@ -1,7 +1,7 @@
-import 'package:estudo/src/cadastro.dart';
-import 'package:estudo/src/calculo_idade.dart';
-import 'package:estudo/src/carrinho_compras.dart';
-import 'package:estudo/src/imc.dart';
+import 'src/cadastro.dart';
+import 'src/calculo_idade.dart';
+import 'src/carrinho_compras.dart';
+import 'src/imc.dart';
 
 void main(List<String> arguments) {
   if (arguments[0] == "calculo-idade") {
