@@ -151,3 +151,14 @@ cadastrar() {
 
   cadastros.add(cadastro);
 }
+//Exemplos de Null Safety
+
+treinamento_null() {
+  String? nome; // A interrogação permite que a variável receba valor nulo
+  print(nome);
+
+  String? textoNumeroX = stdin.readLineSync();
+  int numeroX = int.parse(
+      textoNumeroX!); //Aqui a ! valida a entrada da variavel na função
+  print(numeroX);
+}
