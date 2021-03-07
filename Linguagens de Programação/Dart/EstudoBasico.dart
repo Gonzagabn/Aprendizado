@@ -28,11 +28,12 @@ verificar_idade() {
 }
 
 //Tipos de variáveis
-declar_variaveis() {
+void declar_variaveis() {
   int var1 = 1;
   double var2 = 1.2;
   String var3 = "texto";
   bool var4 = true;
+  print('$var1 $var2 $var3 $var4');
 }
 
 //Loop
