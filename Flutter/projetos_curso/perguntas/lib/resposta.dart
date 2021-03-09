@@ -14,11 +14,13 @@ class Resposta extends StatelessWidget {
         child: Text(texto),
         onPressed: quandoSelecionado,
         style: ElevatedButton.styleFrom(
-            primary: Colors.amberAccent,
-            textStyle: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-            )),
+          primary: Colors.black,
+          textStyle: TextStyle(
+            fontSize: 20,
+            color: Colors.white,
+          ),
+          enableFeedback: true,
+        ),
       ),
     );
   }

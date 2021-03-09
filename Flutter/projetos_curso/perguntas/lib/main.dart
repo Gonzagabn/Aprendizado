@@ -9,27 +9,51 @@ main() => runApp(
 //A classe PerguntaApp se torna widget porque herdanda as características da classe StateLessWidget
 class _PerguntaAppState extends State<PerguntaApp> {
   int _perguntaSelecionada = 0;
+  var _pontuacaoTotal = 0;
   final _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
-      'respostas': ['Preto', 'Azul', 'Cinza', 'Branco'],
+      'respostas': [
+        {'texto': 'Cinza', 'pontuacao': 2},
+        {'texto': 'Preto', 'pontuacao': 10},
+        {'texto': 'Azul', 'pontuacao': 5},
+        {'texto': 'Branco', 'pontuacao': 1},
+      ],
     },
     {
       'texto': 'Qual é o seu animal favorito?',
-      'respostas': ['Águia', 'Pinguin', 'Tigre', 'Capivara'],
+      'respostas': [
+        {'texto': 'Águia', 'pontuacao': 10},
+        {'texto': 'Pinguim', 'pontuacao': 2},
+        {'texto': 'Tigre', 'pontuacao': 5},
+        {'texto': 'Capivara', 'pontuacao': 1},
+      ],
     },
     {
-      'texto': 'Qual é o seu professor favorito?',
-      'respostas': ['Léo', 'Akita', 'Jacob', 'Filipe'],
+      'texto': 'Qual é a sua cidade favorita?',
+      'respostas': [
+        {'texto': 'Campo Grande', 'pontuacao': 10},
+        {'texto': 'Itabira', 'pontuacao': 2},
+        {'texto': 'Suzano', 'pontuacao': 5},
+        {'texto': 'São Paulo', 'pontuacao': 1},
+      ],
     }
   ];
 
-  void _responder() {
+  void _responder(int pontuacao) {
     if (temPerguntaSelecionada) {
       setState(() {
         _perguntaSelecionada++;
+        _pontuacaoTotal += pontuacao;
       });
     }
+  }
+
+  void _reiniciarQuestionario() {
+    setState(() {
+      _perguntaSelecionada = 0;
+      _pontuacaoTotal = 0;
+    });
   }
 
   bool get temPerguntaSelecionada {
@@ -40,17 +64,19 @@ class _PerguntaAppState extends State<PerguntaApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(
-        title: Text('Perguntas'),
-      ),
-      body: temPerguntaSelecionada
-          ? Questionario(
-              perguntas: _perguntas,
-              perguntaSelecionada: _perguntaSelecionada,
-              quandoResponder: _responder,
-            )
-          : Resultado(),
-    ));
+            appBar: AppBar(
+              title: Text('Perguntas'),
+            ),
+            body: temPerguntaSelecionada
+                ? Questionario(
+                    perguntas: _perguntas,
+                    perguntaSelecionada: _perguntaSelecionada,
+                    quandoResponder: _responder,
+                  )
+                : Resultado(
+                    _pontuacaoTotal,
+                    _reiniciarQuestionario,
+                  )));
   }
 }
 
