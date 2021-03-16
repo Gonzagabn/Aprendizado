@@ -15,19 +15,11 @@ class ExpenseList extends StatelessWidget {
         ? LayoutBuilder(
             builder: (ctx, constraints) {
               return Column(
-                children: [
+                children: <Widget>[
                   SizedBox(height: 20),
                   Text(
                     'Nenhuma Transação Cadastrada',
-                    style: Theme.of(context).textTheme.headline6,
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    height: constraints.maxHeight * 0.6,
-                    child: Image.asset(
-                      'assets/images/waiting.png',
-                      fit: BoxFit.cover,
-                    ),
+                    //style: Theme.of(context).textTheme.headline6,
                   ),
                 ],
               );

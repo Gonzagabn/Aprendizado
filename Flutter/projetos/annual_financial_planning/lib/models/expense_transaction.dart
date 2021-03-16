@@ -8,5 +8,15 @@ class ExpenseTransaction extends Transaction {
   ExpenseTransaction({
     @required this.paymentMethod,
     this.creditCardName,
-  });
+    @required String id,
+    @required String title,
+    @required double value,
+    @required DateTime date,
+    @required String recurrence,
+  }) : super(
+            id: id,
+            title: title,
+            value: value,
+            date: date,
+            recurrence: recurrence);
 }
