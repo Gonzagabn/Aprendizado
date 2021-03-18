@@ -1,5 +1,5 @@
 import 'package:annual_financial_planning/models/transaction.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 class IncomeTransaction extends Transaction {
   IncomeTransaction({

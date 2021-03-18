@@ -1,10 +1,7 @@
-import 'dart:math';
-
-import 'package:annual_financial_planning/models/expense_transaction.dart';
+import 'package:annual_financial_planning/components/expense_list.dart';
 import 'package:flutter/material.dart';
 
-import 'components/expense_form.dart';
-import 'components/expense_list.dart';
+import 'models/expense_transaction.dart';
 
 main() => runApp(AnnualFinancialPlanningApp());
 
@@ -23,56 +20,35 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final _expenseTransactions = ExpenseTransaction(
-    id: 'ExT1',
-    title: 'Mart Minaix',
-    value: 200,
-    date: DateTime.now(),
-    recurrence: 'Só hoje',
-    paymentMethod: 'Débito',
-  );
-  final List<ExpenseTransaction> _expensetransactions = [];
-
-  // List<ExpenseTransaction> get _recentTransactions {
-  //   return _expensetransactions.where((tr) {
-  //     return tr.date.isAfter(DateTime.now().subtract(
-  //       Duration(days: 7),
-  //     ));
-  //   }).toList();
-  // }
-
-  _addTransaction(String title, double value, DateTime date, String recurrence,
-      String paymentMethod) {
-    final newExpenseTransaction = ExpenseTransaction(
-      id: Random().nextDouble().toString(),
-      title: title,
-      value: value,
-      date: date,
-      recurrence: recurrence,
-      paymentMethod: paymentMethod,
-    );
-
-    setState(() {
-      _expensetransactions.add(newExpenseTransaction);
-    });
-
-    Navigator.of(context).pop();
-  }
-
-  _removeTransaction(String id) {
-    setState(() {
-      _expensetransactions.removeWhere((tr) => tr.id == id);
-    });
-  }
-
-  _openTransactionFormModal(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (_) {
-        return ExpenseForm(_addTransaction);
-      },
-    );
-  }
+  final expenseTransactions = [
+    ExpenseTransaction(
+      id: '01',
+      title: 'despesa 1',
+      value: 200,
+      date: DateTime.now(),
+      recurrence: 'só hoje',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '02',
+      title: 'despesa 2',
+      value: 760,
+      date: DateTime.now(),
+      recurrence: 'só hoje',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '03',
+      title: 'despesa 3',
+      value: 45,
+      date: DateTime.now(),
+      recurrence: 'só hoje',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -82,17 +58,44 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            ExpenseList(_expenseTransactions, _removeTransaction),
+            Container(
+              height: MediaQuery.of(context).size.height * 0.20,
+              width: MediaQuery.of(context).size.width * 1,
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: Card(
+                elevation: 5,
+                child: Text('Aqui será o Card do Saldo'),
+              ),
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height * 0.4,
+              width: MediaQuery.of(context).size.width * 1,
+              child: Card(
+                margin: EdgeInsets.fromLTRB(6, 3, 6, 6),
+                elevation: 5,
+                child: ExpenseList(),
+                // Column(
+                //   children: expenseTransactions.map((exTr) {
+                //     return Card(
+                //       child: Text(exTr.title),
+                //     );
+                //   }).toList(),
+                // ),
+              ),
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height * 0.2,
+              width: MediaQuery.of(context).size.width * 1,
+              child: Card(
+                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                elevation: 5,
+                child: Text('Aqui será o Card da  Poupança'),
+              ),
+            ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () => _openTransactionFormModal(context),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

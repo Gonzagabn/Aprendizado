@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class ExpenseForm extends StatefulWidget {
-  final void Function(String, double, DateTime) onSubmit;
+  final void Function(String, double, DateTime, String, String) onSubmit;
 
   ExpenseForm(this.onSubmit);
 
@@ -20,12 +20,14 @@ class _ExpenseFormState extends State<ExpenseForm> {
   _submitForm() {
     final title = _titleController.text;
     final value = double.tryParse(_valueController.text) ?? 0.0;
+    final recurrence = _recurrenceController.text;
+    final paymentMethod = _paymentMethodController.text;
 
     if (title.isEmpty || value <= 0 || _selectedDate == null) {
       return;
     }
 
-    widget.onSubmit(title, value, _selectedDate);
+    widget.onSubmit(title, value, _selectedDate, recurrence, paymentMethod);
   }
 
   _showDatePicker() {
