@@ -2,6 +2,16 @@ import 'package:annual_financial_planning/models/expense_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+//                                         Tarefas:
+
+//Formatar a linha principal
+//Criar um botão para maximizar a janela dessas despesas em uma página que se sobreponha a tudo
+//Resolver o datePicker
+//Adicionar as possibilidades de edição para qualquer célula
+//Criar uma chave para agrupar a despesa ou não
+//Criar chave para modificar a despesa para "Constante" ou "Variável"
+//Formatar a linha dos dados
+
 class ExpenseTable extends StatefulWidget {
   @override
   _ExpenseTableState createState() => _ExpenseTableState();
@@ -14,7 +24,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
     ExpenseTransaction(
       id: '01',
       title: 'despesa 1',
-      expectedValue: '-',
+      expectedValue: 0,
       value: 200,
       date: DateTime.now(),
       recurrence: '-',
@@ -24,7 +34,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
     ExpenseTransaction(
       id: '02',
       title: 'despesa 2',
-      expectedValue: '-',
+      expectedValue: 0,
       value: 760,
       date: DateTime.now(),
       recurrence: '-',
@@ -34,7 +44,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
     ExpenseTransaction(
       id: '03',
       title: 'despesa 3',
-      expectedValue: '-',
+      expectedValue: 0,
       value: 45,
       date: DateTime.now(),
       recurrence: '-',
@@ -44,7 +54,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
     ExpenseTransaction(
       id: '02',
       title: 'despesa 2',
-      expectedValue: '-',
+      expectedValue: 0,
       value: 760,
       date: DateTime.now(),
       recurrence: '-',
@@ -54,7 +64,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
     ExpenseTransaction(
       id: '03',
       title: 'despesa 3',
-      expectedValue: '-',
+      expectedValue: 0,
       value: 45,
       date: DateTime.now(),
       recurrence: '-',
@@ -64,7 +74,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
     ExpenseTransaction(
       id: '02',
       title: 'despesa 2',
-      expectedValue: '-',
+      expectedValue: 0,
       value: 760,
       date: DateTime.now(),
       recurrence: '-',
@@ -74,7 +84,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
     ExpenseTransaction(
       id: '03',
       title: 'despesa 3',
-      expectedValue: '-',
+      expectedValue: 0,
       value: 45,
       date: DateTime.now(),
       recurrence: '-',
@@ -84,7 +94,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
     ExpenseTransaction(
       id: '02',
       title: 'despesa 2',
-      expectedValue: '-',
+      expectedValue: 0,
       value: 760,
       date: DateTime.now(),
       recurrence: '-',
@@ -94,7 +104,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
     ExpenseTransaction(
       id: '03',
       title: 'despesa 3',
-      expectedValue: '-',
+      expectedValue: 0,
       value: 45,
       date: DateTime.now(),
       recurrence: '-',
@@ -104,7 +114,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
     ExpenseTransaction(
       id: '02',
       title: 'despesa 2',
-      expectedValue: '-',
+      expectedValue: 0,
       value: 760,
       date: DateTime.now(),
       recurrence: '-',
@@ -114,7 +124,127 @@ class _ExpenseTableState extends State<ExpenseTable> {
     ExpenseTransaction(
       id: '03',
       title: 'despesa 3',
-      expectedValue: '-',
+      expectedValue: 0,
+      value: 45,
+      date: DateTime.now(),
+      recurrence: '-',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '03',
+      title: 'despesa 3',
+      expectedValue: 0,
+      value: 45,
+      date: DateTime.now(),
+      recurrence: '-',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '02',
+      title: 'despesa 2',
+      expectedValue: 0,
+      value: 760,
+      date: DateTime.now(),
+      recurrence: '-',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '03',
+      title: 'despesa 3',
+      expectedValue: 0,
+      value: 45,
+      date: DateTime.now(),
+      recurrence: '-',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '03',
+      title: 'despesa 3',
+      expectedValue: 0,
+      value: 45,
+      date: DateTime.now(),
+      recurrence: '-',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '02',
+      title: 'despesa 2',
+      expectedValue: 0,
+      value: 760,
+      date: DateTime.now(),
+      recurrence: '-',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '03',
+      title: 'despesa 3',
+      expectedValue: 0,
+      value: 45,
+      date: DateTime.now(),
+      recurrence: '-',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '03',
+      title: 'despesa 3',
+      expectedValue: 0,
+      value: 45,
+      date: DateTime.now(),
+      recurrence: '-',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '02',
+      title: 'despesa 2',
+      expectedValue: 0,
+      value: 760,
+      date: DateTime.now(),
+      recurrence: '-',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '03',
+      title: 'despesa 3',
+      expectedValue: 0,
+      value: 45,
+      date: DateTime.now(),
+      recurrence: '-',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '03',
+      title: 'despesa 3',
+      expectedValue: 0,
+      value: 45,
+      date: DateTime.now(),
+      recurrence: '-',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '02',
+      title: 'despesa 2',
+      expectedValue: 0,
+      value: 760,
+      date: DateTime.now(),
+      recurrence: '-',
+      paymentMethod: 'débito',
+      creditCardName: null,
+    ),
+    ExpenseTransaction(
+      id: '03',
+      title: 'despesa 3',
+      expectedValue: 0,
       value: 45,
       date: DateTime.now(),
       recurrence: '-',
@@ -177,7 +307,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
                 ),
                 DataCell(
                   Text(
-                    row.expectedValue.toString(),
+                    NumberFormat.simpleCurrency().format(row.expectedValue),
                     style: TextStyle(
                       color: Colors.grey,
                     ),
@@ -185,7 +315,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
                 ),
                 DataCell(
                   Text(
-                    row.value.toString(),
+                    NumberFormat.simpleCurrency().format(row.value),
                     style: TextStyle(
                       color: Theme.of(context).errorColor,
                     ),

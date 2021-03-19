@@ -7,10 +7,11 @@ class AnnualFinancialPlanningApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: MyHomePage(),
-        theme: ThemeData(
-          primaryColor: Colors.cyan[900],
-        ));
+      home: MyHomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.indigo,
+      ),
+    );
   }
 }
 
@@ -40,8 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               height: availableHeight * 0.20,
-              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
               child: Card(
+                margin: EdgeInsets.fromLTRB(6, 3, 6, 6),
                 elevation: 5,
                 child: Text('Aqui será o Card do Saldo'),
               ),
@@ -49,13 +50,13 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               height: availableHeight * 0.20,
               child: Card(
-                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: EdgeInsets.fromLTRB(6, 3, 6, 6),
                 elevation: 5,
                 child: Text('Aqui será o Card da  Poupança'),
               ),
             ),
             Container(
-              height: availableHeight * 0.40,
+              height: availableHeight * 0.50,
               child: Card(
                 margin: EdgeInsets.fromLTRB(6, 3, 6, 6),
                 elevation: 5,
