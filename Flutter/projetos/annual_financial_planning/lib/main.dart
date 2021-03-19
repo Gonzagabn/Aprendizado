@@ -1,4 +1,4 @@
-import 'package:annual_financial_planning/components/expense_list.dart';
+import 'package:annual_financial_planning/components/expense_table.dart';
 import 'package:flutter/material.dart';
 
 import 'models/expense_transaction.dart';
@@ -9,8 +9,10 @@ class AnnualFinancialPlanningApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
-    );
+        home: MyHomePage(),
+        theme: ThemeData(
+          primaryColor: Colors.cyan[900],
+        ));
   }
 }
 
@@ -69,12 +71,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.4,
+              height: MediaQuery.of(context).size.height * 0.3,
               width: MediaQuery.of(context).size.width * 1,
               child: Card(
                 margin: EdgeInsets.fromLTRB(6, 3, 6, 6),
                 elevation: 5,
-                child: ExpenseList(),
+                child: ExpenseTable(),
                 // Column(
                 //   children: expenseTransactions.map((exTr) {
                 //     return Card(
