@@ -22,16 +22,24 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+
+    final appBar = AppBar(
+      title: Text('Annual Financial Planning'),
+    );
+
+    final availableHeight = mediaQuery.size.height -
+        appBar.preferredSize.height -
+        mediaQuery.padding.top;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Annual Financial Planning'),
-      ),
+      appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
-              height: MediaQuery.of(context).size.height * 0.20,
-              width: MediaQuery.of(context).size.width * 1,
+              height: availableHeight * 0.20,
               margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
               child: Card(
                 elevation: 5,
@@ -39,8 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.2,
-              width: MediaQuery.of(context).size.width * 1,
+              height: availableHeight * 0.20,
               child: Card(
                 margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                 elevation: 5,
@@ -48,8 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.4,
-              width: MediaQuery.of(context).size.width * 1,
+              height: availableHeight * 0.40,
               child: Card(
                 margin: EdgeInsets.fromLTRB(6, 3, 6, 6),
                 elevation: 5,
