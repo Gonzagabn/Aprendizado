@@ -287,7 +287,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
         flex: 1,
         child: SingleChildScrollView(
           child: DataTable(
-            columnSpacing: 18,
+            columnSpacing: 0,
             headingRowHeight: 0,
             dataRowHeight: 24,
             columns: [
