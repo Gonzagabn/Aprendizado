@@ -7,6 +7,7 @@ class ExpenseTable extends StatelessWidget {
     ExpenseTransaction(
       id: '01',
       title: 'despesa 1',
+      expectedValue: '-',
       value: 200,
       date: DateTime.now(),
       recurrence: '-',
@@ -16,6 +17,7 @@ class ExpenseTable extends StatelessWidget {
     ExpenseTransaction(
       id: '02',
       title: 'despesa 2',
+      expectedValue: '-',
       value: 760,
       date: DateTime.now(),
       recurrence: '-',
@@ -25,6 +27,7 @@ class ExpenseTable extends StatelessWidget {
     ExpenseTransaction(
       id: '03',
       title: 'despesa 3',
+      expectedValue: '-',
       value: 45,
       date: DateTime.now(),
       recurrence: '-',
@@ -34,6 +37,7 @@ class ExpenseTable extends StatelessWidget {
     ExpenseTransaction(
       id: '02',
       title: 'despesa 2',
+      expectedValue: '-',
       value: 760,
       date: DateTime.now(),
       recurrence: '-',
@@ -43,6 +47,7 @@ class ExpenseTable extends StatelessWidget {
     ExpenseTransaction(
       id: '03',
       title: 'despesa 3',
+      expectedValue: '-',
       value: 45,
       date: DateTime.now(),
       recurrence: '-',
@@ -52,6 +57,7 @@ class ExpenseTable extends StatelessWidget {
     ExpenseTransaction(
       id: '02',
       title: 'despesa 2',
+      expectedValue: '-',
       value: 760,
       date: DateTime.now(),
       recurrence: '-',
@@ -61,6 +67,7 @@ class ExpenseTable extends StatelessWidget {
     ExpenseTransaction(
       id: '03',
       title: 'despesa 3',
+      expectedValue: '-',
       value: 45,
       date: DateTime.now(),
       recurrence: '-',
@@ -70,6 +77,7 @@ class ExpenseTable extends StatelessWidget {
     ExpenseTransaction(
       id: '02',
       title: 'despesa 2',
+      expectedValue: '-',
       value: 760,
       date: DateTime.now(),
       recurrence: '-',
@@ -79,6 +87,7 @@ class ExpenseTable extends StatelessWidget {
     ExpenseTransaction(
       id: '03',
       title: 'despesa 3',
+      expectedValue: '-',
       value: 45,
       date: DateTime.now(),
       recurrence: '-',
@@ -88,6 +97,7 @@ class ExpenseTable extends StatelessWidget {
     ExpenseTransaction(
       id: '02',
       title: 'despesa 2',
+      expectedValue: '-',
       value: 760,
       date: DateTime.now(),
       recurrence: '-',
@@ -97,6 +107,7 @@ class ExpenseTable extends StatelessWidget {
     ExpenseTransaction(
       id: '03',
       title: 'despesa 3',
+      expectedValue: '-',
       value: 45,
       date: DateTime.now(),
       recurrence: '-',
@@ -107,34 +118,62 @@ class ExpenseTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: DataTable(
-        columnSpacing: 0,
-        dataRowHeight: 25,
-        columns: [
-          DataColumn(label: Text('day')),
-          DataColumn(label: Text('title')),
-          DataColumn(label: Text('\$')),
-        ],
-        rows: expenseTransactions.map((row) {
-          return DataRow(cells: [
-            DataCell(
-              Text(DateFormat('d').format(row.date).toString()),
-            ),
-            DataCell(
-              Text(row.title),
-            ),
-            DataCell(
-              Text(
-                row.value.toString(),
-                style: TextStyle(
-                  color: Theme.of(context).errorColor,
-                ),
-              ),
-            ),
-          ]);
-        }).toList(),
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      Container(
+        child: Row(
+          children: [
+            Text('      Day                     '),
+            Text('Title                  '),
+            Text('Expected          '),
+            Text('Value'),
+          ],
+        ),
       ),
-    );
+      Expanded(
+        flex: 1,
+        child: SingleChildScrollView(
+          child: DataTable(
+            columnSpacing: 18,
+            headingRowHeight: 0,
+            dataRowHeight: 24,
+            columns: [
+              DataColumn(label: Text(' ')),
+              DataColumn(label: Text(' ')),
+              DataColumn(label: Text(' ')),
+              DataColumn(label: Text(' ')),
+            ],
+            rows: expenseTransactions.map((row) {
+              return DataRow(cells: [
+                DataCell(
+                  Text(DateFormat('d').format(row.date).toString()),
+                  onTap: () {
+                    print('on tap');
+                  },
+                ),
+                DataCell(
+                  Text(row.title),
+                ),
+                DataCell(
+                  Text(
+                    row.expectedValue.toString(),
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                  ),
+                ),
+                DataCell(
+                  Text(
+                    row.value.toString(),
+                    style: TextStyle(
+                      color: Theme.of(context).errorColor,
+                    ),
+                  ),
+                ),
+              ]);
+            }).toList(),
+          ),
+        ),
+      ),
+    ]);
   }
 }

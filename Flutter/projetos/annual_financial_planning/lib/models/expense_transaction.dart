@@ -2,10 +2,12 @@ import 'package:annual_financial_planning/models/transaction.dart';
 import 'package:flutter/foundation.dart';
 
 class ExpenseTransaction extends Transaction {
+  final String expectedValue;
   final String paymentMethod;
   final String creditCardName;
 
   ExpenseTransaction({
+    this.expectedValue,
     @required this.paymentMethod,
     this.creditCardName,
     @required String id,
