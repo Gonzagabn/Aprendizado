@@ -11,6 +11,7 @@ import 'package:intl/intl.dart';
 //Criar uma chave para agrupar a despesa ou não
 //Criar chave para modificar a despesa para "Constante" ou "Variável"
 //Formatar a linha dos dados
+//colorir uma linha sim outra nao
 
 class ExpenseTable extends StatefulWidget {
   @override
@@ -300,7 +301,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
               return DataRow(cells: [
                 DataCell(
                   Text(DateFormat('d').format(row.date).toString()),
-                  onTap: _showDatePicker,
+                  onTap: _showDatePicker(),
                 ),
                 DataCell(
                   Text(row.title),
