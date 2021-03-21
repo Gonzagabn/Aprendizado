@@ -1,10 +1,9 @@
 import 'dart:math';
 
 import 'package:annual_financial_planning/models/expense_transaction.dart';
+import 'package:annual_financial_planning/screens/expense_form_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import 'expense_form.dart';
 
 //                                         Tarefas:
 
@@ -24,7 +23,6 @@ class ExpenseTable extends StatefulWidget {
 
 class _ExpenseTableState extends State<ExpenseTable> {
   // DateTime _selectedDate = DateTime.now();
-
   final List<ExpenseTransaction> expenseTransactions = [];
 
   _addExpenseTransaction(
@@ -53,12 +51,13 @@ class _ExpenseTableState extends State<ExpenseTable> {
     Navigator.of(context).pop();
   }
 
-  _openTransactionFormModal(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (_) {
-        return ExpenseForm(_addExpenseTransaction);
-      },
+  _openExpenseTransactionFormScreen(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) {
+          return ExpenseFormScreen(_addExpenseTransaction);
+        },
+      ),
     );
   }
 
@@ -139,7 +138,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
       Padding(
         padding: const EdgeInsets.fromLTRB(3, 3, 3, 0),
         child: ElevatedButton(
-          onPressed: () => _openTransactionFormModal(context),
+          onPressed: () => _openExpenseTransactionFormScreen(context),
           child: Icon(Icons.add),
         ),
       ),
