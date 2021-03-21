@@ -83,9 +83,10 @@ class _ExpenseFormState extends State<ExpenseForm> {
               ),
               TextField(
                 controller: _expectedValueController,
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
                 onSubmitted: (_) => _submitForm(),
                 decoration: InputDecoration(
-                  labelText: 'Expected Value',
+                  labelText: 'Expected Value (\$)',
                 ),
               ),
               TextField(

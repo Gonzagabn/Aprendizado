@@ -29,8 +29,8 @@ class _ExpenseTableState extends State<ExpenseTable> {
 
   _addExpenseTransaction(
       String title,
-      double expectedValue,
       double value,
+      double expectedValue,
       DateTime date,
       String recurrence,
       String paymentMethod,
@@ -38,8 +38,8 @@ class _ExpenseTableState extends State<ExpenseTable> {
     final newExpenseTransaction = ExpenseTransaction(
       id: Random().nextDouble().toString(),
       title: title,
-      expectedValue: expectedValue,
       value: value,
+      expectedValue: expectedValue,
       date: date,
       recurrence: recurrence,
       paymentMethod: paymentMethod,
@@ -136,9 +136,12 @@ class _ExpenseTableState extends State<ExpenseTable> {
           ),
         ),
       ),
-      ElevatedButton(
-        onPressed: () => _openTransactionFormModal(context),
-        child: Icon(Icons.add),
+      Padding(
+        padding: const EdgeInsets.fromLTRB(3, 3, 3, 0),
+        child: ElevatedButton(
+          onPressed: () => _openTransactionFormModal(context),
+          child: Icon(Icons.add),
+        ),
       ),
     ]);
   }
