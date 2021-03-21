@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class ExpenseForm extends StatefulWidget {
-  final void Function(String, double, DateTime, String, String) onSubmit;
+  final void Function(String, double, double, DateTime, String, String, String)
+      onSubmit;
 
   ExpenseForm(this.onSubmit);
 
@@ -13,21 +14,26 @@ class ExpenseForm extends StatefulWidget {
 class _ExpenseFormState extends State<ExpenseForm> {
   final _titleController = TextEditingController();
   final _valueController = TextEditingController();
+  final _expectedValueController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
   final _recurrenceController = TextEditingController();
   final _paymentMethodController = TextEditingController();
+  final _creditCardNameController = TextEditingController();
 
   _submitForm() {
     final title = _titleController.text;
     final value = double.tryParse(_valueController.text) ?? 0.0;
+    final expectedValue = double.tryParse(_expectedValueController.text) ?? 0.0;
     final recurrence = _recurrenceController.text;
     final paymentMethod = _paymentMethodController.text;
+    final creditCardName = _creditCardNameController.text;
 
     if (title.isEmpty || value <= 0 || _selectedDate == null) {
       return;
     }
 
-    widget.onSubmit(title, value, _selectedDate, recurrence, paymentMethod);
+    widget.onSubmit(title, value, expectedValue, _selectedDate, recurrence,
+        paymentMethod, creditCardName);
   }
 
   _showDatePicker() {
@@ -64,7 +70,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
                 controller: _titleController,
                 onSubmitted: (_) => _submitForm(),
                 decoration: InputDecoration(
-                  labelText: 'Título',
+                  labelText: 'Title',
                 ),
               ),
               TextField(
@@ -72,21 +78,35 @@ class _ExpenseFormState extends State<ExpenseForm> {
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
                 onSubmitted: (_) => _submitForm(),
                 decoration: InputDecoration(
-                  labelText: 'Valor (R\$)',
+                  labelText: 'Value (\$)',
+                ),
+              ),
+              TextField(
+                controller: _expectedValueController,
+                onSubmitted: (_) => _submitForm(),
+                decoration: InputDecoration(
+                  labelText: 'Expected Value',
                 ),
               ),
               TextField(
                 controller: _recurrenceController,
                 onSubmitted: (_) => _submitForm(),
                 decoration: InputDecoration(
-                  labelText: 'Recorrencia',
+                  labelText: 'Recurrence',
                 ),
               ),
               TextField(
                 controller: _paymentMethodController,
                 onSubmitted: (_) => _submitForm(),
                 decoration: InputDecoration(
-                  labelText: 'Metodo de Pagamento',
+                  labelText: 'Payment Method',
+                ),
+              ),
+              TextField(
+                controller: _creditCardNameController,
+                onSubmitted: (_) => _submitForm(),
+                decoration: InputDecoration(
+                  labelText: 'Credit Card Name',
                 ),
               ),
               Container(

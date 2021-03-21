@@ -1,6 +1,10 @@
+import 'dart:math';
+
 import 'package:annual_financial_planning/models/expense_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+import 'expense_form.dart';
 
 //                                         Tarefas:
 
@@ -19,270 +23,72 @@ class ExpenseTable extends StatefulWidget {
 }
 
 class _ExpenseTableState extends State<ExpenseTable> {
-  DateTime _selectedDate = DateTime.now();
+  // DateTime _selectedDate = DateTime.now();
 
-  final expenseTransactions = [
-    ExpenseTransaction(
-      id: '01',
-      title: 'despesa 1',
-      expectedValue: 0,
-      value: 200,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '02',
-      title: 'despesa 2',
-      expectedValue: 0,
-      value: 760,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '03',
-      title: 'despesa 3',
-      expectedValue: 0,
-      value: 45,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '02',
-      title: 'despesa 2',
-      expectedValue: 0,
-      value: 760,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '03',
-      title: 'despesa 3',
-      expectedValue: 0,
-      value: 45,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '02',
-      title: 'despesa 2',
-      expectedValue: 0,
-      value: 760,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '03',
-      title: 'despesa 3',
-      expectedValue: 0,
-      value: 45,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '02',
-      title: 'despesa 2',
-      expectedValue: 0,
-      value: 760,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '03',
-      title: 'despesa 3',
-      expectedValue: 0,
-      value: 45,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '02',
-      title: 'despesa 2',
-      expectedValue: 0,
-      value: 760,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '03',
-      title: 'despesa 3',
-      expectedValue: 0,
-      value: 45,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '03',
-      title: 'despesa 3',
-      expectedValue: 0,
-      value: 45,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '02',
-      title: 'despesa 2',
-      expectedValue: 0,
-      value: 760,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '03',
-      title: 'despesa 3',
-      expectedValue: 0,
-      value: 45,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '03',
-      title: 'despesa 3',
-      expectedValue: 0,
-      value: 45,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '02',
-      title: 'despesa 2',
-      expectedValue: 0,
-      value: 760,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '03',
-      title: 'despesa 3',
-      expectedValue: 0,
-      value: 45,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '03',
-      title: 'despesa 3',
-      expectedValue: 0,
-      value: 45,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '02',
-      title: 'despesa 2',
-      expectedValue: 0,
-      value: 760,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '03',
-      title: 'despesa 3',
-      expectedValue: 0,
-      value: 45,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '03',
-      title: 'despesa 3',
-      expectedValue: 0,
-      value: 45,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '02',
-      title: 'despesa 2',
-      expectedValue: 0,
-      value: 760,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-    ExpenseTransaction(
-      id: '03',
-      title: 'despesa 3',
-      expectedValue: 0,
-      value: 45,
-      date: DateTime.now(),
-      recurrence: '-',
-      paymentMethod: 'débito',
-      creditCardName: null,
-    ),
-  ];
+  final List<ExpenseTransaction> expenseTransactions = [];
 
-  _showDatePicker() {
-    showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(DateTime.now().year),
-      lastDate: DateTime.now(),
-    ).then((pickedDate) {
-      if (pickedDate == null) {
-        return;
-      }
-      setState(() {
-        _selectedDate = pickedDate;
-      });
+  _addExpenseTransaction(
+      String title,
+      double expectedValue,
+      double value,
+      DateTime date,
+      String recurrence,
+      String paymentMethod,
+      String creditCardName) {
+    final newExpenseTransaction = ExpenseTransaction(
+      id: Random().nextDouble().toString(),
+      title: title,
+      expectedValue: expectedValue,
+      value: value,
+      date: date,
+      recurrence: recurrence,
+      paymentMethod: paymentMethod,
+      creditCardName: creditCardName,
+    );
+
+    setState(() {
+      expenseTransactions.add(newExpenseTransaction);
     });
+
+    Navigator.of(context).pop();
   }
+
+  _openTransactionFormModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (_) {
+        return ExpenseForm(_addExpenseTransaction);
+      },
+    );
+  }
+
+  // _showDatePicker() {
+  //   showDatePicker(
+  //     context: context,
+  //     initialDate: DateTime.now(),
+  //     firstDate: DateTime(DateTime.now().year),
+  //     lastDate: DateTime.now(),
+  //   ).then((pickedDate) {
+  //     if (pickedDate == null) {
+  //       return;
+  //     }
+  //     setState(() {
+  //       _selectedDate = pickedDate;
+  //     });
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-      Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text('Day'),
-            Text('Title'),
-            Text('Expected'),
-            Text('Value'),
-          ],
-        ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text('Day'),
+          Text('Title'),
+          Text('Expected'),
+          Text('Value'),
+        ],
       ),
       Expanded(
         flex: 1,
@@ -300,8 +106,10 @@ class _ExpenseTableState extends State<ExpenseTable> {
             rows: expenseTransactions.map((row) {
               return DataRow(cells: [
                 DataCell(
-                  Text(DateFormat('d').format(row.date).toString()),
-                  onTap: _showDatePicker(),
+                  Text(
+                    DateFormat('d').format(row.date).toString(),
+                  ),
+                  // onTap: _showDatePicker,
                 ),
                 DataCell(
                   Text(row.title),
@@ -317,6 +125,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
                 DataCell(
                   Text(
                     NumberFormat.simpleCurrency().format(row.value),
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Theme.of(context).errorColor,
                     ),
@@ -326,6 +135,10 @@ class _ExpenseTableState extends State<ExpenseTable> {
             }).toList(),
           ),
         ),
+      ),
+      ElevatedButton(
+        onPressed: () => _openTransactionFormModal(context),
+        child: Icon(Icons.add),
       ),
     ]);
   }
