@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:annual_financial_planning/models/expense_transaction.dart';
 import 'package:annual_financial_planning/screens/expense_form_screen.dart';
 import 'package:flutter/material.dart';
@@ -61,87 +60,75 @@ class _ExpenseTableState extends State<ExpenseTable> {
     );
   }
 
-  // _showDatePicker() {
-  //   showDatePicker(
-  //     context: context,
-  //     initialDate: DateTime.now(),
-  //     firstDate: DateTime(DateTime.now().year.toInt()),
-  //     lastDate: DateTime(DateTime.now().year.toInt() + 2),
-  //   ).then((pickedDate) {
-  //     if (pickedDate == null) {
-  //       return;
-  //     }
-  //     setState(() {
-  //       _selectedDate = pickedDate;
-  //     });
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Text('Day'),
-          Text('Title'),
-          Text('Expected'),
-          Text('Value'),
-        ],
-      ),
-      Expanded(
-        flex: 1,
-        child: SingleChildScrollView(
-          child: DataTable(
-            columnSpacing: 0,
-            headingRowHeight: 0,
-            dataRowHeight: 24,
-            columns: [
-              DataColumn(label: Text(' ')),
-              DataColumn(label: Text(' ')),
-              DataColumn(label: Text(' ')),
-              DataColumn(label: Text(' ')),
-            ],
-            rows: expenseTransactions.map((row) {
-              return DataRow(cells: [
-                DataCell(
-                  Text(
-                    DateFormat('d').format(row.date).toString(),
+    return Card(
+      margin: EdgeInsets.fromLTRB(6, 3, 6, 6),
+      elevation: 5,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text('Day'),
+            Text('Title'),
+            Text('Expected'),
+            Text('Value'),
+          ],
+        ),
+        Expanded(
+          flex: 1,
+          child: SingleChildScrollView(
+            child: DataTable(
+              columnSpacing: 0,
+              headingRowHeight: 0,
+              dataRowHeight: 24,
+              columns: [
+                DataColumn(label: Text(' ')),
+                DataColumn(label: Text(' ')),
+                DataColumn(label: Text(' ')),
+                DataColumn(label: Text(' ')),
+              ],
+              rows: expenseTransactions.map((row) {
+                return DataRow(cells: [
+                  DataCell(
+                    Text(
+                      DateFormat('d').format(row.date).toString(),
+                    ),
+                    // onTap: _showDatePicker,
                   ),
-                  // onTap: _showDatePicker,
-                ),
-                DataCell(
-                  Text(row.title),
-                ),
-                DataCell(
-                  Text(
-                    NumberFormat.simpleCurrency().format(row.expectedValue),
-                    style: TextStyle(
-                      color: Colors.grey,
+                  DataCell(
+                    Text(row.title),
+                  ),
+                  DataCell(
+                    Text(
+                      NumberFormat.simpleCurrency().format(row.expectedValue),
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
                     ),
                   ),
-                ),
-                DataCell(
-                  Text(
-                    NumberFormat.simpleCurrency().format(row.value),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Theme.of(context).errorColor,
+                  DataCell(
+                    Text(
+                      NumberFormat.simpleCurrency().format(row.value),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Theme.of(context).errorColor,
+                      ),
                     ),
                   ),
-                ),
-              ]);
-            }).toList(),
+                ]);
+              }).toList(),
+            ),
           ),
         ),
-      ),
-      Padding(
-        padding: const EdgeInsets.fromLTRB(3, 3, 3, 0),
-        child: ElevatedButton(
-          onPressed: () => _openExpenseTransactionFormScreen(context),
-          child: Icon(Icons.add),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(3, 3, 3, 0),
+          child: ElevatedButton(
+            onPressed: () => _openExpenseTransactionFormScreen(context),
+            child: Icon(Icons.add),
+          ),
         ),
-      ),
-    ]);
+      ]),
+    );
   }
 }

@@ -57,11 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               height: availableHeight * 0.50,
-              child: Card(
-                margin: EdgeInsets.fromLTRB(6, 3, 6, 6),
-                elevation: 5,
-                child: ExpenseTable(),
-              ),
+              child: ExpenseTable(),
             ),
           ],
         ),
