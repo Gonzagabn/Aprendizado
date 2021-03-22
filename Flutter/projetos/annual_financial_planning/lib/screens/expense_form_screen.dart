@@ -47,8 +47,8 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
     showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(2021),
-      lastDate: DateTime.now(),
+      firstDate: DateTime(DateTime.now().year.toInt()),
+      lastDate: DateTime(DateTime.now().year.toInt() + 2),
     ).then((pickedDate) {
       if (pickedDate == null) {
         return;
