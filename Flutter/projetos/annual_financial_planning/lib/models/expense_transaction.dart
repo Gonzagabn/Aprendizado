@@ -6,7 +6,7 @@ class ExpenseTransaction extends Transaction {
   final String paymentMethod;
   final String creditCardName;
 
-  ExpenseTransaction({
+  const ExpenseTransaction({
     this.expectedValue,
     @required this.paymentMethod,
     this.creditCardName,

@@ -63,7 +63,7 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('New Expense'),
+        title: const Text('New Expense'),
       ),
       body: SingleChildScrollView(
         child: Card(
@@ -80,7 +80,7 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
                 TextField(
                   controller: _titleController,
                   onSubmitted: (_) => _submitForm(),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Title',
                   ),
                 ),
@@ -88,7 +88,7 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
                   controller: _valueController,
                   keyboardType: TextInputType.numberWithOptions(decimal: true),
                   onSubmitted: (_) => _submitForm(),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Value (\$)',
                   ),
                 ),
@@ -96,28 +96,28 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
                   controller: _expectedValueController,
                   keyboardType: TextInputType.numberWithOptions(decimal: true),
                   onSubmitted: (_) => _submitForm(),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Expected Value (\$)',
                   ),
                 ),
                 TextField(
                   controller: _recurrenceController,
                   onSubmitted: (_) => _submitForm(),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Recurrence',
                   ),
                 ),
                 TextField(
                   controller: _paymentMethodController,
                   onSubmitted: (_) => _submitForm(),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Payment Method',
                   ),
                 ),
                 TextField(
                   controller: _creditCardNameController,
                   onSubmitted: (_) => _submitForm(),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Credit Card Name',
                   ),
                 ),
@@ -133,7 +133,7 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
                         ),
                       ),
                       TextButton(
-                        child: Text(
+                        child: const Text(
                           'Selecionar Data',
                         ),
                         onPressed: _showDatePicker,
@@ -145,7 +145,7 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     ElevatedButton(
-                      child: Text(
+                      child: const Text(
                         'Nova Transação',
                         //   style: Theme.of(context).textTheme.button,
                       ),

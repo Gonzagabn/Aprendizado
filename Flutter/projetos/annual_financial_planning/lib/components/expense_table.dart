@@ -60,6 +60,22 @@ class _ExpenseTableState extends State<ExpenseTable> {
     );
   }
 
+  // _showDateEditor() {
+  //   showDatePicker(
+  //     context: context,
+  //     initialDate: DateTime.now(),
+  //     firstDate: DateTime(DateTime.now().year.toInt()),
+  //     lastDate: DateTime(DateTime.now().year.toInt() + 2),
+  //   ).then((pickedDate) {
+  //     if (pickedDate == null) {
+  //       return;
+  //     }
+  //     setState(() {
+  //       expenseTransacions[].date = pickedDate;
+  //     });
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -94,7 +110,7 @@ class _ExpenseTableState extends State<ExpenseTable> {
                     Text(
                       DateFormat('d').format(row.date).toString(),
                     ),
-                    // onTap: _showDatePicker,
+                    //onTap: _showDateEditor,
                   ),
                   DataCell(
                     Text(row.title),
@@ -125,6 +141,12 @@ class _ExpenseTableState extends State<ExpenseTable> {
           padding: const EdgeInsets.fromLTRB(3, 3, 3, 0),
           child: ElevatedButton(
             onPressed: () => _openExpenseTransactionFormScreen(context),
+            // {
+            //    Navigator.of(context).pushNamed(
+            //      AppRoute.EXPENSE_FORM,
+            //      arguments: _onsubmit,
+            //    )
+            // },
             child: Icon(Icons.add),
           ),
         ),

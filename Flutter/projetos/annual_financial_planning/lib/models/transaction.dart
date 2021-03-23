@@ -7,7 +7,7 @@ class Transaction {
   final DateTime date;
   final String recurrence;
 
-  Transaction({
+  const Transaction({
     @required this.id,
     @required this.title,
     @required this.value,
