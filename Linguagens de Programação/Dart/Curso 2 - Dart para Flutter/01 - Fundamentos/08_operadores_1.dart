@@ -21,6 +21,7 @@ main() {
 
   //Binários/Infix
   print(coisaFragil && coisaCara); //operação 'E/AND' (multiplicação): false
+  // ignore: dead_code
   print(coisaFragil || coisaCara); //operação 'OU/OR' (soma): true
   //Na situação acima, pode acontecer dos dois serem verdadeiros e resulta true
   print(coisaFragil ^ coisaCara); //operação 'OU Exclusivo/XOR': true
