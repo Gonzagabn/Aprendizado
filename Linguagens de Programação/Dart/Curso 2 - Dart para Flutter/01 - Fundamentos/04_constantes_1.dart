@@ -8,7 +8,7 @@ main() {
   programa funcionar, ou seja, é conhecido no tempo de compilação, diferente
   do "final" que somente é conhecido em tempo de execução, ou, em runtime*/
 
-  stdout.write('Informe o raio: ');
+  stdout.write('Informe o raio: '); //escreve sem quebrar linha
   /*"stdout" é a saída padrão (standart out) do dispositivo, exemplo: a Tela,
   a função "write" escreve na tela do dispositivo*/
 
@@ -16,7 +16,7 @@ main() {
   final double raio = double.parse(entradaDoUsuario);
   /*final, porque ela não vai ser alterada depois da entrada no programa */
 
-  print("O valor do raio é: " + raio.toString());
+  print("O valor do raio é: " + raio.toString()); // escreve quebrando linha
 
   final area = PI * raio * raio;
 
