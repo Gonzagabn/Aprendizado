@@ -17,7 +17,7 @@ main() {
     }
   }
 
-  /*Imprime: 
+  /*imprime: 
   Valor do ponto é 2
   Valor do ponto é 4
   Valor do ponto é 3
