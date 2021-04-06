@@ -22,7 +22,7 @@ bytecode é compilado e então executado pela JVM
 +Memória -tempo
 -Memória +tempo
 
-Atribuição é <-
+Atribuição é "<-"
 
 -----------------------------
 Estrutura java e o tal do Case sensitive
