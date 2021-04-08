@@ -9,6 +9,8 @@ o Dart é uma linguagem orientada a objetos como o Java, mas também suporta
 recursos do paradigma de programação funcional.
 */
 
+/*Funções que não retornam nada, com e sem parâmetro*/
+
 main() {
   int a = 2;
   int b = 3;
@@ -28,6 +30,7 @@ main() {
 }
 
 //Void é uma função que não retorna nada
+//Aqui os parâmetros são obrigatórios e devem ser do tipo declarado
 void somaComPrint(int n1, int n2) /*n1 e n2 são parâmetros de entrada*/ {
   print(n1 + n2);
 }
