@@ -1,5 +1,14 @@
 import 'dart:math';
 
+/*Função:
+A função escrita fora de uma classe é chamada de "Função",
+já a função escrita dentro de uma classe, é chamada de "Método".
+
+OBS: O Java não aceita função fora de classe, mas o Dart aceita, isso porque
+o Dart é uma linguagem orientada a objetos como o Java, mas também suporta 
+recursos do paradigma de programação funcional.
+*/
+
 main() {
   int a = 2;
   int b = 3;
