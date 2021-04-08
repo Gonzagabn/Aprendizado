@@ -1,0 +1,40 @@
+Situação 1:
+
+função(p1, p2) {
+    //10 segundos -> p1
+    sentença #01
+    sentença #02
+    sentença #03
+    
+    // 1 segundo -> p2
+    sentença #04
+    sentença #05
+}
+
+função (3, 17) //gasta 11 segundos
+função (3, 39) //gasta 11 segundos
+função (3, 92) //gasta 11 segundos
+
+Total: 33 segundos
+__________________________________________________
+Situação 2:   Mais rápida, com economia de processamento
+
+funçãoFora(p1) {
+    //10 segundos -> p1
+    sentença #01
+    sentença #02
+    sentença #03
+    
+    return (p2){
+        //1 segundo -> p2
+        sentença #04
+        sentença #05
+    }
+}
+
+var funçãoForaComParametroDefinido3 = funçãoFora(3) //10 segundos
+funçãoForaComParametroDefinido3 (17) //gasta 1 segundo
+funçãoForaComParametroDefinido3 (39) //gasta 1 segundo
+funçãoForaComParametroDefinido3 (92) //gasta 1 segundo
+
+Total: 13 segundos
