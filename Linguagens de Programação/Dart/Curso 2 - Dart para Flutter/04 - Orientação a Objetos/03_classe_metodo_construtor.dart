@@ -62,6 +62,15 @@ class Data6 {
   Data6(this.dia, this.mes, this.ano);
 }
 
+//Classe com parâmetros opcionais
+class Data7 {
+  int dia; //não precisa de "?" porque defini no construtor valor igual a 8
+  int mes; //não precisa de "?" porque defini no construtor valor igual a 11
+  int? ano; //"?" pra permitir que o valor pode ser "null"
+
+  Data7([this.dia = 8, this.mes = 11, this.ano]); //'mes' e 'ano' opcionais
+}
+
 main() {
   var data1 = new Data(); //"Data()" é o método construtor da classe
   data1.dia = 10;
@@ -91,5 +100,9 @@ main() {
 
   var data6 = new Data6(10, 3, 1992); //"Data6()" tem parâmetros obrigatórios
   print("data6 é: ${data6.dia}/${data6.mes}/${data6.ano}");
-  //imprime: data5 é: 10/3/1992
+  //imprime: data6 é: 10/3/1992
+
+  var data7 = new Data7(); //"Data7()" não tem parâmetros obrigatórios
+  print("data7 é: ${data7.dia}/${data7.mes}/${data7.ano}");
+  //imprime: data7 é: 8/11/null
 }
