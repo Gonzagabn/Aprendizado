@@ -41,7 +41,7 @@ class Data4 {
   }
 }
 
-//Formato melhor e Padrão:
+//Formato melhor:
 class Data5 {
   int? dia;
   int? mes;
@@ -51,6 +51,15 @@ class Data5 {
     this.mes = mes; //Sem o "this." o atributo do objeto não será definido
     ano = ano; //Sem o "this." o atributo retorna "null"
   }
+}
+
+//Formato Padrão:
+class Data6 {
+  int dia;
+  int mes;
+  int ano;
+
+  Data6(this.dia, this.mes, this.ano);
 }
 
 main() {
@@ -79,4 +88,8 @@ main() {
   var data5 = new Data5(10, 3, 1992); //"Data5()" tem parâmetros obrigatórios
   print("data5 é: ${data5.dia}/${data5.mes}/${data5.ano}");
   //imprime: data5 é: 10/3/null
+
+  var data6 = new Data6(10, 3, 1992); //"Data6()" tem parâmetros obrigatórios
+  print("data6 é: ${data6.dia}/${data6.mes}/${data6.ano}");
+  //imprime: data5 é: 10/3/1992
 }
