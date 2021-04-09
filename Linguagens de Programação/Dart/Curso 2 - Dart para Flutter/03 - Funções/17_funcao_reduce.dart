@@ -24,7 +24,7 @@ main() {
   print(nomes.reduce(juntar)); //imprime: AnaBiaCarlos
 }
 
-//O única exigencia é que o tipo do 'acumulador' e da função tem que ser igual
+//A única exigencia é que o tipo do 'acumulador' e da função tem que ser igual
 double somar(double acumulador, double elemento) {
   stdout.write("$acumulador'$elemento|");
   //imprime: 7.3'5.4|12.7'7.7|20.4'8.1|28.5'5.5|34.0'4.9|38.9'9.1|48.0'10.0|
