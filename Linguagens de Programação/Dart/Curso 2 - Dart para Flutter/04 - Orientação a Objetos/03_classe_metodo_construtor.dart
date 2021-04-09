@@ -24,6 +24,7 @@ class Data3 {
   Data3(int dia, int mes, int ano) {} //Agora esse é o construtor padrão
   //O construtor padrão "Data3()" não existe mais
   //Os parâmetros passam a ser obrigatórios
+  //Os parâmetros de mesmo nome da classe e do construtor vão retornar null
 }
 
 class Data4 {
