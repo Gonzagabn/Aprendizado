@@ -4,6 +4,16 @@ import '02c_composicao_venda_item.dart';
 import '02d_composicao_venda_carrinho.dart';
 
 main() {
+  var vendaItem3 = VendaItem(
+    quantidade: 3,
+    produto: Produto(
+      codigo: 1003,
+      nome: 'Carne',
+      preco: 30.0,
+      desconto: 0.0,
+    ),
+  );
+
   var vendaMercado = VendaCarrinho(
     cliente: Cliente(
       nome: 'Luiz',
@@ -28,17 +38,11 @@ main() {
           desconto: 0.25,
         ),
       ),
-      VendaItem(
-        quantidade: 3,
-        produto: Produto(
-          codigo: 1003,
-          nome: 'Carne',
-          preco: 30.0,
-          desconto: 0.0,
-        ),
-      )
+      vendaItem3,
     ],
   );
 
-  print('O valor total da venda é: ${vendaMercado.valorTotal}');
+  print('O valor total da venda é: R\$ ${vendaMercado.valorTotal}');
+  print('O nome do primeiro produto é: ${vendaMercado.itens[0].produto?.nome}');
+  print('O CPF do cliente é: ${vendaMercado.cliente?.cpf}');
 }
