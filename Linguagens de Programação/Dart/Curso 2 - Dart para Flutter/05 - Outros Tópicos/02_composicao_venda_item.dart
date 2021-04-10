@@ -1,10 +1,11 @@
-class Produto {
-  int? codigo;
-  String? nome;
-  double? preco;
-  double desconto; //percentual (0.5 = 50%)
+import '02_composicao_produto.dart';
 
-  Produto({this.codigo, this.nome, this.preco, this.desconto = 0});
+class VendaItem {
+  Produto produto;
+  int quantidade;
+  double? _precoDaVenda;
+
+  VendaItem({this.produto, this.quantidade = 1});
 
   //Ulitizando o "get" para criar uma propriedade "precoComDesconto"
   //Isso porque a classe Produto é dona dos atributos "preco" e "desconto"
