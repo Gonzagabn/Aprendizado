@@ -1,5 +1,6 @@
 //O tipo "Map" é o que as variáveis se apresentam como chave e valor
-//A função "map" transforma elementos de um tipo em outro
+//A função "map" transforma elementos de um tipo em outro gerando um conjunto
+//A propriedade ".map" cria um conjunto e não uma lista
 main() {
   var alunos = [
     {'nome': 'Alfredo', 'nota': 9.9},
@@ -13,6 +14,7 @@ main() {
   double Function(Map) pegarApenasNotas = (aluno) => aluno['nota'];
   var notas = alunos.map(pegarApenasNotas); //Transforma lista de Map em double
   print(notas); //imprime: (9.9, 9.3, 8.7, 8.1, 7.6, 6.8)
+  print(notas is List); //imprime: false
 
   String Function(Map) pegarApenasONome = (aluno) => aluno['nome'];
   int Function(String) qtdeDeLetras = (texto) => texto.length;
