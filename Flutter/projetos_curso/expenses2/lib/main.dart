@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       ),
       _getIconButton(
-        Icons.add,
+        Platform.isIOS ? CupertinoIcons.add : Icons.add,
         () => _openTransactionFormModal(context),
       ),
     ];
@@ -119,6 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ? CupertinoNavigationBar(
             middle: Text('Despesas Versão 2'),
             trailing: Row(
+              mainAxisSize: MainAxisSize.min,
               children: actions,
             ),
           )
@@ -132,7 +133,8 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar.preferredSize.height -
         mediaQuery.padding.top;
 
-    final bodyPage = SingleChildScrollView(
+    final bodyPage = 
+    SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
