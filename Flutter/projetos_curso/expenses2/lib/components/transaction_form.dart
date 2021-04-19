@@ -1,7 +1,6 @@
 import 'package:expenses2/components/adaptative_button.dart';
 import 'package:expenses2/components/adaptative_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import 'adaptative_date_picker.dart';
 
@@ -32,6 +31,7 @@ class _TransactionFormState extends State<TransactionForm> {
 
   @override
   Widget build(BuildContext context) {
+    print('build() TransactionForm');
     return SingleChildScrollView(
       child: Card(
         elevation: 5,
