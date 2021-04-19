@@ -65,8 +65,8 @@ Linguagens de Programação
 
     Linguagens de alto nível (nível de abstração) - Quase linguagem comum
 
-        A escolha da linguagem de programação para se usar em um computador
-    depende, antes de tudo, da existência de um programa compilador (que traduza o
-    algoritmo escrito na linguagem escolhida para a linguagem de máquina) ou de um
-    programa interpretador (que interprete cada comando do programa e execute uma série
-    de instruções que a ele correspondem).
+        A escolha da linguagem de programação para se usar em um computador depende,
+    antes de tudo, da existência de um programa compilador (que traduza o algoritmo 
+    escrito na linguagem escolhida para a linguagem de máquina) ou de um programa 
+    interpretador (que interprete cada comando do programa e execute uma série de 
+    instruções que a ele correspondem).

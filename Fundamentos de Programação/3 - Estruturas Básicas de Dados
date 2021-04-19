@@ -13,6 +13,6 @@ Variáveis Compostas Homogêneas
     
 Variávei Compostas Heterogêneas
 
-    Variáveis compostas heterogêneas são conjuntos de dados logicamente
-    relacionados, mas de tipos diferentes (numérico, literal, lógico). São também conhecidos
-    como registros ou estruturas.
+    Variáveis compostas heterogêneas são conjuntos de dados logicamente relacionados,
+    mas de tipos diferentes (numérico, literal, lógico). São também conhecidos como 
+    registros ou estruturas.
