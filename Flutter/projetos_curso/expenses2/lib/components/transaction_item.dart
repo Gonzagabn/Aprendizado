@@ -9,9 +9,10 @@ class TransactionItem extends StatefulWidget {
   final void Function(String) onRemove;
 
   TransactionItem({
+    Key key,
     @required this.tr,
     @required this.onRemove,
-  });
+  }) : super(key: key);
 
   @override
   _TransactionItemState createState() => _TransactionItemState();
