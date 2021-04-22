@@ -11,9 +11,6 @@ class ProductDetailScreen extends StatelessWidget {
         title: Text(product.title),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text(''),
-      ),
     );
   }
 }
