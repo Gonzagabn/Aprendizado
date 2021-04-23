@@ -15,9 +15,9 @@ class CounterState {
 class CounterProvider extends InheritedWidget {
   final CounterState state = CounterState();
 
-  CounterProvider({Widget child}) : super(child: child);
+  CounterProvider({required Widget child}) : super(child: child);
 
-  static CounterProvider of(BuildContext context) {
+  static CounterProvider? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<CounterProvider>();
   }
 
