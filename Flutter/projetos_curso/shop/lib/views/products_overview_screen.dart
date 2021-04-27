@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop/providers/cart.dart';
 import 'package:shop/widgets/badge.dart';
 import 'package:shop/widgets/product_grid.dart';
 
@@ -44,11 +46,14 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
               ),
             ],
           ),
-          Badge(
-            value: '2',
+          Consumer<Cart>(
             child: IconButton(
               icon: Icon(Icons.shopping_cart),
               onPressed: () {},
+            ),
+            builder: (_, cart, child) => Badge(
+              value: cart.itemCount.toString(),
+              child: child,
             ),
           )
         ],
