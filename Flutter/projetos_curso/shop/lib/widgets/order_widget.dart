@@ -40,9 +40,28 @@ class _OrderWidgetState extends State<OrderWidget> {
                 horizontal: 15,
                 vertical: 4,
               ),
+              height: (widget.order.products!.length * 22.0) + 4,
               child: ListView(
                 children: widget.order.products!.map((product) {
-                  return Text('Opa');
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        product.title!,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        '${product.quantity} x R\$${product.price!}',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  );
                 }).toList(),
               ),
             ),
