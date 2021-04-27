@@ -7,7 +7,7 @@ class CounterState {
   void dec() => _value--;
   int get value => _value;
 
-  bool diff(CounterState old) {
+  bool diff(CounterState? old) {
     return old == null || old._value != _value;
   }
 }

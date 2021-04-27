@@ -1,5 +1,6 @@
 import 'package:shop/models/product.dart';
 
+// ignore: non_constant_identifier_names
 final DUMMY_PRODUCTS = [
   Product(
     id: 'p1',
