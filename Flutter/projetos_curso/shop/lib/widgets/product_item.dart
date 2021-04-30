@@ -54,6 +54,7 @@ class ProductItem extends StatelessWidget {
                   if (value) {
                     Provider.of<Products>(context, listen: false)
                         .deleteProduct(product.id!);
+                    print(value);
                   }
                 });
               },

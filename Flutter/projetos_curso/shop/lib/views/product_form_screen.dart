@@ -78,11 +78,11 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
     _form.currentState!.save();
 
     final product = Product(
-      id: _formData['id'] as String,
-      title: _formData['title'] as String,
-      description: _formData['description'] as String,
-      price: _formData['price'] as double,
-      imageUrl: _formData['imageUrl'] as String,
+      id: _formData['id'] as String?,
+      title: _formData['title'] as String?,
+      description: _formData['description'] as String?,
+      price: _formData['price'] as double?,
+      imageUrl: _formData['imageUrl'] as String?,
     );
 
     final products = Provider.of<Products>(context, listen: false);
