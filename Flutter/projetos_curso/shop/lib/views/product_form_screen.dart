@@ -1,7 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shop/providers/product.dart';
+import 'package:shop/providers/products.dart';
 
 class ProductFormScreen extends StatefulWidget {
   @override
@@ -22,8 +22,41 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
     _imageUrlFocusNode.addListener(_updateImage);
   }
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    if (_formData.isEmpty) {
+      final product = ModalRoute.of(context)!.settings.arguments as Product;
+
+      if (product != null) {
+        _formData['id'] = product.id as String;
+        _formData['title'] = product.title as String;
+        _formData['description'] = product.description as String;
+        _formData['price'] = product.price as double;
+        _formData['imageUrl'] = product.imageUrl as String;
+
+        _imageUrlController.text = _formData['imageUrl'] as String;
+      } else {
+        _formData['price'] = '';
+      }
+    }
+  }
+
   void _updateImage() {
-    setState(() {});
+    if (isValidImageUrl(_imageUrlController.text)) {
+      setState(() {});
+    }
+  }
+
+  bool isValidImageUrl(String url) {
+    bool startsWithHttp = url.toLowerCase().startsWith('http://');
+    bool startsWithHttps = url.toLowerCase().startsWith('https://');
+    bool endsWithPng = url.toLowerCase().endsWith('.png');
+    bool endsWithJpg = url.toLowerCase().endsWith('.jpg');
+    bool endsWithJpeg = url.toLowerCase().endsWith('.jpeg');
+    return (startsWithHttp || startsWithHttps) &&
+        (endsWithPng || endsWithJpg || endsWithJpeg);
   }
 
   @override
@@ -44,14 +77,22 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
 
     _form.currentState!.save();
 
-    final newProduct = Product(
-      id: Random().nextDouble().toString(),
+    final product = Product(
+      id: _formData['id'] as String,
       title: _formData['title'] as String,
       description: _formData['description'] as String,
       price: _formData['price'] as double,
       imageUrl: _formData['imageUrl'] as String,
     );
-    print(newProduct);
+
+    final products = Provider.of<Products>(context, listen: false);
+    if (_formData['id'] == null) {
+      products.addProduct(product);
+    } else {
+      products.updateProduct(product);
+    }
+
+    Navigator.of(context).pop();
   }
 
   @override
@@ -76,6 +117,7 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
           child: ListView(
             children: <Widget>[
               TextFormField(
+                initialValue: _formData['title'] as String,
                 decoration: InputDecoration(labelText: 'Título'),
                 textInputAction: TextInputAction.next,
                 onFieldSubmitted: (_) {
@@ -83,18 +125,16 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
                 },
                 onSaved: (value) => _formData['title'] = value!,
                 validator: (value) {
-                  if (value!.trim().isEmpty) {
-                    return 'Informe um título válido!';
+                  bool isEmpty = value!.trim().isEmpty;
+                  bool isInvalid = value.trim().length < 3;
+                  if (isEmpty || isInvalid) {
+                    return 'Informe um Título válido com no mínimo 3 caracteres!';
                   }
-
-                  if (value.trim().length >= 3) {
-                    return 'Informe um título com no mínimo 3 letras!';
-                  }
-
                   return null;
                 },
               ),
               TextFormField(
+                initialValue: _formData['price'].toString(),
                 decoration: InputDecoration(labelText: 'Preço'),
                 textInputAction: TextInputAction.next,
                 focusNode: _priceFocusNode,
@@ -105,14 +145,32 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_descriptionFocusNode);
                 },
+                validator: (value) {
+                  bool isEmpty = value!.trim().isEmpty;
+                  var newPrice = double.tryParse(value);
+                  bool isInvalid = newPrice == null || newPrice <= 0;
+                  if (isEmpty || isInvalid) {
+                    return 'Informe um Preço válido!';
+                  }
+                  return null;
+                },
               ),
               TextFormField(
+                initialValue: _formData['description'] as String,
                 decoration: InputDecoration(labelText: 'Descrição'),
                 maxLines: 3,
                 keyboardType: TextInputType.multiline,
                 //textInputAction: TextInputAction.next,(only IOS) (Refatorar)
                 onSaved: (value) => _formData['description'] = value!,
                 focusNode: _descriptionFocusNode,
+                validator: (value) {
+                  bool isEmpty = value!.trim().isEmpty;
+                  bool isInvalid = value.trim().length < 10;
+                  if (isEmpty || isInvalid) {
+                    return 'Informe uma Descrição válida com no mínimo 10 caracteres!';
+                  }
+                  return null;
+                },
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -127,6 +185,14 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
                       onSaved: (value) => _formData['imageUrl'] = value!,
                       onFieldSubmitted: (_) {
                         _saveForm();
+                      },
+                      validator: (value) {
+                        bool isEmpty = value!.trim().isEmpty;
+                        bool isInvalid = !isValidImageUrl(value);
+                        if (isEmpty || isInvalid) {
+                          return 'Informe uma URL válida!';
+                        }
+                        return null;
                       },
                     ),
                   ),
