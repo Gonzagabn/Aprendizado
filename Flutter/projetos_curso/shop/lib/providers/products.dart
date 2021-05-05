@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
@@ -19,10 +18,10 @@ class Products with ChangeNotifier {
     return _items.where((prod) => prod.isFavorite).toList();
   }
 
-  void addProduct(Product newProduct) {
+  Future<void> addProduct(Product newProduct) async {
     final url = Uri.https(
         'flutter-2ce78-default-rtdb.firebaseio.com', '/products.json');
-    http.post(
+    final response = await http.post(
       url,
       body: json.encode({
         'title': newProduct.title,
@@ -32,9 +31,8 @@ class Products with ChangeNotifier {
         'isFavorite': newProduct.isFavorite,
       }),
     );
-
     _items.add(Product(
-      id: Random().nextDouble().toString(),
+      id: json.decode(response.body)['name'],
       title: newProduct.title,
       description: newProduct.description,
       price: newProduct.price,
