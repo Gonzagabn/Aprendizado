@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:shop/exceptions/http_exception.dart';
 import 'package:shop/providers/product.dart';
+import 'package:shop/utils/constants.dart';
 
 class Products with ChangeNotifier {
-  static const _url = 'flutter-2ce78-default-rtdb.firebaseio.com';
-  final Uri _uri = Uri.https(_url, '/products.json');
+  final Uri _uri = Uri.https(Constants.BASE_API_URL, '/products.json');
   List<Product> _items = [];
 
   List<Product> get items => [..._items];
@@ -70,7 +70,7 @@ class Products with ChangeNotifier {
 
     if (index >= 0) {
       await http.patch(
-        Uri.https(_url, '/${product.id}.json'),
+        Uri.https(Constants.BASE_API_URL, '/${product.id}.json'),
         body: json.encode({
           'title': product.title,
           'description': product.description,
@@ -91,7 +91,7 @@ class Products with ChangeNotifier {
       notifyListeners();
 
       final response = await http.delete(
-        Uri.https(_url, '/${product.id}.json'),
+        Uri.https(Constants.BASE_API_URL, '/${product.id}.json'),
       );
 
       if (response.statusCode >= 400) {

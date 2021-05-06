@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shop/providers/cart.dart';
+import 'package:shop/utils/constants.dart';
 
 class Order {
   final String? id;
@@ -19,7 +20,7 @@ class Order {
 }
 
 class Orders with ChangeNotifier {
-  static const _url = 'flutter-2ce78-default-rtdb.firebaseio.com/orders';
+  static const _url = Constants.BASE_API_URL;
   List<Order> _items = [];
 
   List<Order> get items {
@@ -30,10 +31,40 @@ class Orders with ChangeNotifier {
     return _items.length;
   }
 
+  Future<void> loadOrders() async {
+    List<Order> _loadedItems = [];
+    final response = await http.get(Uri.https(_url, '/orders.json'));
+    Map<String, dynamic>? data = json.decode(response.body);
+
+    if (data != null) {
+      data.forEach((orderId, orderData) {
+        _loadedItems.add(
+          Order(
+            id: orderId,
+            total: orderData['total'],
+            date: DateTime.parse(orderData['date']),
+            products: (orderData['products'] as List<dynamic>).map((item) {
+              return CartItem(
+                id: item['id'],
+                price: item['price'],
+                productId: item['productId'],
+                quantity: item['quantity'],
+                title: item['title'],
+              );
+            }).toList(),
+          ),
+        );
+      });
+      notifyListeners();
+    }
+    _items = _loadedItems.reversed.toList();
+    return Future.value();
+  }
+
   Future<void> addOrder(Cart cart) async {
     final date = DateTime.now();
     final response = await http.post(
-      Uri.https(_url, '.json'),
+      Uri.https(_url, '/orders.json'),
       body: json.encode({
         'total': cart.totalAmount,
         'date': date.toIso8601String(),
