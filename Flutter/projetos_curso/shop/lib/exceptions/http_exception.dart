@@ -1,5 +1,3 @@
-import 'dart:html';
-
 class HttpException implements Exception {
   final String msg;
 
