@@ -21,6 +21,8 @@ class Products with ChangeNotifier {
 
   Future<void> loadProducts() async {
     final response = await http.get(_uri);
+    var numero = 20;
+    print(numero.toDouble());
     Map<String, dynamic>? data = json.decode(response.body);
 
     _items.clear();
@@ -30,7 +32,7 @@ class Products with ChangeNotifier {
           id: productId,
           title: productData['title'],
           description: productData['description'],
-          price: productData['price'],
+          price: productData['price'].toDouble(),
           imageUrl: productData['imageUrl'],
           isFavorite: productData['isFavorite'],
         ));
