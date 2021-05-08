@@ -91,7 +91,7 @@ class Products with ChangeNotifier {
       notifyListeners();
 
       final response = await http.delete(
-        Uri.https(Constants.BASE_API_URL, '/${product.id}.json'),
+        Uri.https(Constants.BASE_API_URL, '/products/${product.id}.json'),
       );
 
       if (response.statusCode >= 400) {
