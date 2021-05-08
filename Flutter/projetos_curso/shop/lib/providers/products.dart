@@ -70,7 +70,7 @@ class Products with ChangeNotifier {
 
     if (index >= 0) {
       await http.patch(
-        Uri.https(Constants.BASE_API_URL, '/${product.id}.json'),
+        Uri.https(Constants.BASE_API_URL, '/products/${product.id}.json'),
         body: json.encode({
           'title': product.title,
           'description': product.description,
