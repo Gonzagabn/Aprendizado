@@ -45,6 +45,7 @@ class Auth with ChangeNotifier {
           seconds: int.parse(responseBody['expiresIn']),
         ),
       );
+      notifyListeners();
     }
 
     return Future.value();
