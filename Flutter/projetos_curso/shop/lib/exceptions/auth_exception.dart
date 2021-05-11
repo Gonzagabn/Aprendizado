@@ -14,6 +14,10 @@ class AuthException implements Exception {
 
   @override
   String toString() {
-    return key;
+    if (errors.containsKey(key)) {
+      return errors[key]!;
+    } else {
+      return 'Ocorreu um erro na autenticação!';
+    }
   }
 }

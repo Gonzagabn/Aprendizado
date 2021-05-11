@@ -2,9 +2,27 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shop/exceptions/auth_exception.dart';
 import 'package:shop/utils/constants.dart';
 
 class Auth with ChangeNotifier {
+  String? _token;
+  DateTime? _expiryDate;
+
+  bool get isAuth {
+    return token != null;
+  }
+
+  String? get token {
+    if (_token != null &&
+        _expiryDate != null &&
+        _expiryDate!.isAfter(DateTime.now())) {
+      return _token;
+    } else {
+      return null;
+    }
+  }
+
   Future<void> _authenticate(
       String email, String password, String authMethod) async {
     final url = Uri.parse(authMethod);
@@ -17,7 +35,17 @@ class Auth with ChangeNotifier {
         'returnSecureToken': true,
       }),
     );
-    print(json.encode(response.body));
+    final responseBody = json.decode(response.body);
+    if (responseBody['error'] != null) {
+      throw AuthException(responseBody['error']['message']);
+    } else {
+      _token = responseBody['idToken'];
+      _expiryDate = DateTime.now().add(
+        Duration(
+          seconds: int.parse(responseBody['expiresIn']),
+        ),
+      );
+    }
 
     return Future.value();
   }
