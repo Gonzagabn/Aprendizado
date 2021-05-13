@@ -84,7 +84,7 @@ class Auth with ChangeNotifier {
     if (userData == null) {
       return Future.value();
     }
-    final expiryDate = DateTime.parse(userData['exppiryDate']);
+    final expiryDate = DateTime.parse(userData['expiryDate']);
 
     if (expiryDate.isBefore(DateTime.now())) {
       return Future.value();
