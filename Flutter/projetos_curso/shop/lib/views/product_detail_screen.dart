@@ -65,6 +65,7 @@ class ProductDetailScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
+                SizedBox(height: 1000)
               ],
             ),
           )
