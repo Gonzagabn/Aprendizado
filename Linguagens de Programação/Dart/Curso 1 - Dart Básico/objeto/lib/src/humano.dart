@@ -1,4 +1,4 @@
 class Humano {
-  int peso;
-  double altura;
+  int? peso;
+  double? altura;
 }

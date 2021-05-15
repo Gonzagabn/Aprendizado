@@ -3,11 +3,11 @@ import 'dart:io';
 void calculoImc() {
   print('Digite seu peso');
   var textPeso = stdin.readLineSync();
-  var peso = int.parse(textPeso);
+  var peso = int.parse(textPeso!);
 
   print('Digite sua altura');
   var textAltura = stdin.readLineSync();
-  var altura = double.parse(textAltura);
+  var altura = double.parse(textAltura!);
 
   var imc = calcImcExpressao(peso, altura);
   imprimirResultado(imc);

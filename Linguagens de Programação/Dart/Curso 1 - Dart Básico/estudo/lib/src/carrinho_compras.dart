@@ -15,7 +15,7 @@ void carrinhoCompras() {
     } else if (text == 'remover') {
       remover();
     } else {
-      produtos.add(text);
+      produtos.add(text!);
       print('\x1B[2J\x1B[0;0H');
     }
   }
@@ -30,7 +30,7 @@ void imprimir() {
 void remover() {
   print('Qual item deseja remover?');
   imprimir();
-  var item = int.parse(stdin.readLineSync());
+  var item = int.parse(stdin.readLineSync()!);
   produtos.removeAt(item);
   print('Item removido');
 }

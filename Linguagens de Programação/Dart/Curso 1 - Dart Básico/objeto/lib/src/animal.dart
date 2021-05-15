@@ -1,4 +1,4 @@
 class Animal {
-  String barulho;
+  String? barulho;
   Animal({this.barulho});
 }
