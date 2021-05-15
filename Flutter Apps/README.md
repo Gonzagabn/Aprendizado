@@ -1,2 +1,2 @@
 # Flutter Apps
-Estudos pessoais organizados por temas.
+Aplicativos desenvolvidos em Flutter, pensados em Andorid e iOS.
